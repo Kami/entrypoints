@@ -13,10 +13,7 @@ import sys
 import warnings
 import zipfile
 
-if sys.version_info[0] >= 3:
-    import configparser
-else:
-    from backports import configparser
+from six.moves.configparser import ConfigParser
 
 entry_point_pattern = re.compile(r"""
 (?P<modulename>\w+(\.\w+)*)
@@ -55,7 +52,7 @@ class NoSuchEntryPoint(Exception):
         return "No {!r} entry point found in group {!r}".format(self.name, self.group)
 
 
-class CaseSensitiveConfigParser(configparser.ConfigParser):
+class CaseSensitiveConfigParser(ConfigParser):
     optionxform = staticmethod(str)
 
 
