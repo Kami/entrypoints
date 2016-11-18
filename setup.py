@@ -14,14 +14,12 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-import os.path
-
-from setuptools import setup, find_packages
+from setuptools import setup
 
 setup(
     name='entrypoints',
     version='0.3.0',
     description='faster pkg_resources implementation',
     zip_safe=False,
-    py_modules='entrypoints'
+    py_modules=['entrypoints']
 )
